@@ -25,14 +25,14 @@ class MainActivity : AppCompatActivity() {
 
         val retrofitBuilder = Retrofit.Builder()
             //.baseUrl("https://moviesdatabase.p.rapidapi.com/")
-            .baseUrl("https://moviesdatabase.p.rapidapi.com/titles/search/title/")
+            .baseUrl("https://moviesdatabase.p.rapidapi.com/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(ApiInterface::class.java)
         //https://moviesdatabase.p.rapidapi.com/titles/search/title/tmnt?exact=false&titleType=movie
         val retrofitData = retrofitBuilder.getData(
             //"title/avengers?exact=false&titleType=movie"
-        "tmnt?exact=false&titleType=movie"
+        "tmnt","false","movie"
         )
 
         retrofitData.enqueue(object: Callback<MyData?>{
